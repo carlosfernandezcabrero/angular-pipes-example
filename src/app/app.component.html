@@ -1,4 +1,13 @@
-<div class="container py-5">
+<div class="container-fluid pt-3">
+  <div class="row">
+    <div class="col">
+      <button type="button" (click)="cambiarIdioma('es')" class="btn btn-primary float-right mr-2">Español</button>
+      <button type="button" (click)="cambiarIdioma('en')" class="btn btn-primary float-right mr-2">Ingles</button>
+      <button type="button" (click)="cambiarIdioma('fr')" class="btn btn-primary float-right mr-2">Frances</button>
+    </div>
+  </div>
+</div>
+<div class="container pb-5">
   <h1>Pipes <small>Angular</small></h1>
   <hr>
   <div class="row mb-5">
@@ -90,12 +99,17 @@
         <tr>
           <td>{{fecha}}</td>
           <td>date</td>
-          <td>{{fecha | date:'short'}}</td>
+          <td>{{fecha | date:'short':'':idioma}}</td>
         </tr>
         <tr>
           <td>{{fecha}}</td>
           <td>date</td>
-          <td>{{fecha | date:'MMMM - dd'}}</td>
+          <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
+        </tr>
+        <tr>
+          <td>{{fecha}}</td>
+          <td>date</td>
+          <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
         </tr>
         </tbody>
       </table>

@@ -14,6 +14,7 @@ export class AppComponent {
   porcentaje = 0.293;
   salario = 1450.39;
   fecha = new Date();
+  idioma = 'es';
 
   promesa = new Promise<string>(resuelto => {
     setTimeout(() => {
@@ -29,5 +30,9 @@ export class AppComponent {
       nombre: 'Splunk Applications'
     }
   };
+
+  cambiarIdioma(idioma: string): void{
+    this.idioma = idioma;
+  }
 
 }
