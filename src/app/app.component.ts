@@ -51,11 +51,7 @@ export class AppComponent {
   }
 
   cambiarActivo(): void{
-    if (this.activo){
-      this.activo = false;
-    } else {
-      this.activo = true;
-    }
+    this.activo = !this.activo;
   }
 
 }
