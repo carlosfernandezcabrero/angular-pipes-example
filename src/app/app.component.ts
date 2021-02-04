@@ -15,6 +15,14 @@ export class AppComponent {
   salario = 1450.39;
   fecha = new Date();
   idioma = 'es';
+  numeroMiPipe = 2;
+  activo = false;
+  codigo: string;
+  video = 'https://www.youtube.com/embed/fXpMiweCC_o';
+
+  constructor(){
+    this.codigo = this.generarCodigo();
+  }
 
   promesa = new Promise<string>(resuelto => {
     setTimeout(() => {
@@ -33,6 +41,21 @@ export class AppComponent {
 
   cambiarIdioma(idioma: string): void{
     this.idioma = idioma;
+  }
+
+  generarCodigo(): string{
+    const min = 1;
+    const max = 3000;
+    const codigo: number = Math.random() * (max - min) + min;
+    return codigo.toString();
+  }
+
+  cambiarActivo(): void{
+    if (this.activo){
+      this.activo = false;
+    } else {
+      this.activo = true;
+    }
   }
 
 }

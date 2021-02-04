@@ -1,6 +1,10 @@
 <div class="container-fluid pt-3">
   <div class="row">
     <div class="col">
+      <p class="d-inline-block">CODIGO DE SEGURIDAD:  {{codigo | displaycode:activo}}</p>
+      <button (click)="cambiarActivo()" type="button" class="btn btn-primary btn-sm ml-3">Mostrar/Ocultar</button>
+    </div>
+    <div class="col">
       <button type="button" (click)="cambiarIdioma('es')" class="btn btn-primary float-right mr-2">Español</button>
       <button type="button" (click)="cambiarIdioma('en')" class="btn btn-primary float-right mr-2">Ingles</button>
       <button type="button" (click)="cambiarIdioma('fr')" class="btn btn-primary float-right mr-2">Frances</button>
@@ -33,38 +37,28 @@
         </tr>
         <tr>
           <td>{{nombre}}</td>
-          <td>slice</td>
+          <td>slice:2</td>
           <td>{{nombre | slice:2}}</td>
         </tr>
         <tr>
-          <td>{{nombre}}</td>
-          <td>slice</td>
-          <td>{{nombre | slice:0:2}}</td>
-        </tr>
-        <tr>
           <td>{{arreglo}}</td>
-          <td>slice</td>
+          <td>slice:0:2</td>
           <td>{{arreglo | slice:0:2}}</td>
         </tr>
         <tr>
           <td>{{PI}}</td>
-          <td>number</td>
+          <td>number: '2.1-2'</td>
           <td>{{PI | number: '2.1-2'}}</td>
         </tr>
         <tr>
           <td>{{PI}}</td>
-          <td>number</td>
+          <td>number: '.0-0'</td>
           <td>{{PI | number: '.0-0'}}</td>
         </tr>
         <tr>
           <td>{{numeroEntero}}</td>
-          <td>number</td>
+          <td>number: '1.1-2'</td>
           <td>{{numeroEntero | number: '1.1-2'}}</td>
-        </tr>
-        <tr>
-          <td>{{numeroEntero}}</td>
-          <td>number</td>
-          <td>{{numeroEntero | number: '3.0-0'}}</td>
         </tr>
         <tr>
           <td>{{porcentaje}}</td>
@@ -73,22 +67,22 @@
         </tr>
         <tr>
           <td>{{porcentaje}}</td>
-          <td>percent</td>
+          <td>percent:'2.2-2'</td>
           <td>{{porcentaje | percent:'2.2-2'}}</td>
         </tr>
         <tr>
           <td>{{porcentaje}}</td>
-          <td>percent</td>
+          <td>percent:'3.0-0'</td>
           <td>{{porcentaje | percent:'3.0-0'}}</td>
         </tr>
         <tr>
           <td>{{salario}}</td>
-          <td>currency</td>
+          <td>currency:'EUR'</td>
           <td>{{salario | currency:'EUR'}}</td>
         </tr>
         <tr>
           <td>{{salario}}</td>
-          <td>currency</td>
+          <td>currency:'CARLINAS ':'symbol':'.0-0'</td>
           <td>{{salario | currency:'CARLINAS ':'symbol':'.0-0'}}</td>
         </tr>
         <tr>
@@ -98,17 +92,12 @@
         </tr>
         <tr>
           <td>{{fecha}}</td>
-          <td>date</td>
+          <td>date:'short':'':'{{idioma}}'</td>
           <td>{{fecha | date:'short':'':idioma}}</td>
         </tr>
         <tr>
           <td>{{fecha}}</td>
-          <td>date</td>
-          <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
-        </tr>
-        <tr>
-          <td>{{fecha}}</td>
-          <td>date</td>
+          <td>date:'MMMM - dd':'':'{{idioma}}'</td>
           <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
         </tr>
         </tbody>
@@ -126,9 +115,32 @@
   </div>
   <h4>JSON</h4>
   <hr>
-  <div class="row">
+  <div class="row mb-5">
     <div class="col">
       <pre>{{servidor | json}}</pre>
+    </div>
+  </div>
+  <h4>Mi Pipe</h4>
+  <hr>
+  <div class="row mb-5">
+    <div class="col">
+      <div class="alert alert-secondary" role="alert">
+        Raiz cuadrada de {{numeroMiPipe}} sin decimales: {{numeroMiPipe | myCustomPipe:false}}
+        <br>
+        Raiz cuadrada de {{numeroMiPipe}} con decimales: {{numeroMiPipe | myCustomPipe}}
+      </div>
+    </div>
+  </div>
+  <h4>DomSeguro</h4>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <iframe width="560" 
+              height="315" 
+              [src]="video | domseguro"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen></iframe>
     </div>
   </div>
 </div>
